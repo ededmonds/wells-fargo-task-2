@@ -24,13 +24,13 @@ public class Security {
     @Column(nullable = true)
     private double quantity;
 
-    public Security(String name, String category, Date purchaseDate,double purchasePrice, double quantity, Poritolio poritolio){
+    public Security(String name, String category, Date purchaseDate,double purchasePrice, double quantity, Portfolio portfolio){
         this.name = name;
         this.category = category;
         this.purchaseDate = purchaseDate;
         this.purchasePrice = purchasePrice;
         this.quantity = quantity;
-        this.poritolio = poritolio;
+        this.portfolio = portfolio;
     }
 
     public long getSecurityId(){return securityId;}
@@ -38,7 +38,7 @@ public class Security {
     public String getCategory(){return category;}
     public Date getPurchaseDate(){return purchaseDate;}
     public double getQuantity(){return quantity;}
-    public Poritolio getPoritolio(){return poritolio;}
+    public Portfolio getPortfolio(){return portfolio;}
     public double getPurchasePrice(){return purchasePrice;}
 
     public void setPurchasePrice(double price) {
@@ -56,12 +56,12 @@ public class Security {
     public void setQuantity(double newQuantity){
         this.quantity = newQuantity;
     }
-    public void setPoritolio(Poritolio poritolio){
-        this.poritolio = poritolio;
+    public void setPortfolio(Portfolio portfolio){
+        this.portfolio = portfolio;
     }
     protected Security(){}
 
     @ManyToOne()
     @JoinColumn(name="portfolio")
-    private Poritolio poritolio;
+    private Portfolio portfolio;
 }

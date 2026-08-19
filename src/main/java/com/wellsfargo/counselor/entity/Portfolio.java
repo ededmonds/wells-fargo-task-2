@@ -6,12 +6,12 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name="Poritolio")
-public class Poritolio {
+@Table(name="Portfolio")
+public class Portfolio {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long poritolioId;
+    private long portfolioId;
 
     @Column(nullable = false)
     private Date createdDate;
@@ -22,7 +22,7 @@ public class Poritolio {
 
 
 
-    public Poritolio(Date createdDate, double totalValue, Client client){
+    public Portfolio(Date createdDate, double totalValue, Client client){
         this.client = client;
         this.createdDate = createdDate;
         this.totalValue = totalValue;
@@ -30,7 +30,7 @@ public class Poritolio {
 
     public Date getCreatedDate() {return createdDate;}
     public double getTotalValue(){return totalValue;}
-    public long getPoritolioId(){ return poritolioId;}
+    public long getPortfolioId(){ return portfolioId;}
     public Client getClient(){return client;}
     public void setCreatedDate(Date createdDate){
         this.createdDate = createdDate;
@@ -48,11 +48,11 @@ public class Poritolio {
     @JoinColumn(name = "clientId")
     private Client client;
 
-    @OneToMany(mappedBy = "poritolio")
+    @OneToMany(mappedBy = "portfolio")
     private List<Security>securities;
 
     public List<Security> getSecurities(){return securities;}
-    protected Poritolio(){
+    protected Portfolio(){
 
     }
 
