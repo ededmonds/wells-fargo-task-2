@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 @Table(name="Client")
 public class Client {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long clientId;
     @Column(nullable = false)
     private String name;
@@ -22,7 +22,7 @@ public class Client {
     private Advisor advisor;
 
     @OneToOne(mappedBy = "client")
-    private Poritolio poritolio;
+    private Portfolio poritolio;
 
     public Client(String name, String email, String phone, String address){
         this.name = name;

@@ -10,7 +10,7 @@ import java.util.List;
 public class Portfolio {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long portfolioId;
 
     @Column(nullable = false)
